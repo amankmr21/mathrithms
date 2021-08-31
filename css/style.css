@@ -1,0 +1,145 @@
+/* Global */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: capitalize;
+}
+
+img {
+    width: 100%;
+}
+
+header+main {
+    padding-top: 7%;
+}
+
+/* wrapper */
+
+.wrapper {
+    display: grid;
+    grid-gap: 2rem 1rem;
+    grid-template-areas: 'header header header header' 'items items items items';
+    width: 100%;
+}
+
+/* Link menu */
+
+.sidebar {
+    position: fixed;
+    top: 8%;
+    left: 0;
+    height: 100%;
+    width: 25%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s linear;
+    transform: translate(-100%);
+    background-color: #6FCF97;
+}
+
+.sidebar button {
+    padding: 1em;
+    border: none;
+    background: none;
+
+}
+
+.sidebar button:hover {
+    cursor: pointer;
+}
+
+.purple{
+    color: #bb6bd9;
+}
+.show-sidebar {
+    transform: translate(0);
+}
+
+/* header */
+
+header {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color: #6FCF97;
+}
+
+header button {
+    border: none;
+    background: none;
+    padding: 1em;
+}
+
+header button:hover {
+    background-color: rgb(196, 196, 196);
+    cursor: pointer;
+}
+
+/* Main */
+
+main {
+    grid-area: items;
+}
+
+main .items {
+    display: grid;
+    grid-template-areas: 'item item item item'
+    'item item item item';
+    grid-gap: 1rem;
+    place-items: center;
+}
+
+.item {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: silver;
+    /* padding: 1rem; */
+}
+
+
+
+
+/* media queries */
+
+@media (max-width: 700px) {
+    .wrapper {
+        grid-template-areas: 'header header' 'items items';
+    }
+    main .items {
+        grid-template-areas: 'item item' 'item item';
+        margin-top: 20px;
+    }
+    main .item{
+        width: 150px;
+        height: 150px;
+    }
+    .sidebar button{
+        visibility:visible;
+    }
+}
+
+@media (max-width: 500px) {
+    .wrapper {
+        grid-template-areas: 'header' 'items';
+    }
+    main .items {
+        grid-template-areas: 'item' 'item';
+    }
+    .sidebar button{
+        visibility: visible;
+    }
+ 
+}
